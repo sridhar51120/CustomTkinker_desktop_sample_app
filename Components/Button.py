@@ -62,7 +62,6 @@ class Button:
                 elif parameter == 'check_disable_state':
                     is_disabled = "disabled" in self.btn.state()
                     return is_disabled
-
         except ValueError as e:
             print(e)
 
