@@ -12,7 +12,6 @@ label = CTkLabel(master=frame, text="This is a frame")
 entry = CTkEntry(master=frame, placeholder_text="Type something...")
 btn = CTkButton(master=frame, text="Submit")
 
-
 label.pack(anchor="s", expand=True, pady=10, padx=30)
 entry.pack(anchor="s", expand=True, pady=10, padx=30)
 btn.pack(anchor="n", expand=True, padx=30, pady=20)

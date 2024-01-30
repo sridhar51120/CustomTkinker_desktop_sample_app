@@ -24,7 +24,6 @@ CTkButton(master=sidebar_frame, image=analytics_img, text="Dashboard", fg_color=
 
 package_img_data = Image.open("package_icon.png")
 package_img = CTkImage(dark_image=package_img_data, light_image=package_img_data)
-
 CTkButton(master=sidebar_frame, image=package_img, text="Orders", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55", hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
 
 list_img_data = Image.open("list_icon.png")
@@ -60,7 +59,6 @@ metrics_frame.pack(anchor="n", fill="x",  padx=27, pady=(36, 0))
 orders_metric = CTkFrame(master=metrics_frame, fg_color="#2A8C55", width=200, height=60)
 orders_metric.grid_propagate(0)
 orders_metric.pack(side="left")
-
 logitics_img_data = Image.open("logistics_icon.png")
 logistics_img = CTkImage(light_image=logitics_img_data, dark_image=logitics_img_data, size=(43, 43))
 
@@ -73,24 +71,18 @@ CTkLabel(master=orders_metric, text="123", text_color="#fff",font=("Arial Black"
 shipped_metric = CTkFrame(master=metrics_frame, fg_color="#2A8C55", width=200, height=60)
 shipped_metric.grid_propagate(0)
 shipped_metric.pack(side="left",expand=True, anchor="center")
-
 shipping_img_data = Image.open("shipping_icon.png")
 shipping_img = CTkImage(light_image=shipping_img_data, dark_image=shipping_img_data, size=(43, 43))
-
 CTkLabel(master=shipped_metric, image=shipping_img, text="").grid(row=0, column=0, rowspan=2, padx=(12,5), pady=10)
-
 CTkLabel(master=shipped_metric, text="Shipping", text_color="#fff", font=("Arial Black", 15)).grid(row=0, column=1, sticky="sw")
 CTkLabel(master=shipped_metric, text="91", text_color="#fff",font=("Arial Black", 15), justify="left").grid(row=1, column=1, sticky="nw", pady=(0,10))
 
 delivered_metric = CTkFrame(master=metrics_frame, fg_color="#2A8C55", width=200, height=60)
 delivered_metric.grid_propagate(0)
 delivered_metric.pack(side="right",)
-
 delivered_img_data = Image.open("delivered_icon.png")
 delivered_img = CTkImage(light_image=delivered_img_data, dark_image=delivered_img_data, size=(43, 43))
-
 CTkLabel(master=delivered_metric, image=delivered_img, text="").grid(row=0, column=0, rowspan=2, padx=(12,5), pady=10)
-
 CTkLabel(master=delivered_metric, text="Delivered", text_color="#fff", font=("Arial Black", 15)).grid(row=0, column=1, sticky="sw")
 CTkLabel(master=delivered_metric, text="23", text_color="#fff",font=("Arial Black", 15), justify="left").grid(row=1, column=1, sticky="nw", pady=(0,10))
 
