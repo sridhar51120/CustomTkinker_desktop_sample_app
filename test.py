@@ -1,110 +1,46 @@
-# from lib.Databases.Database_connection import *
-# from lib.Databases.DB import *
-# from src import get_config
+# import math
+# def create_product_cards(products, num_rows, num_columns):
+#     for i, product in enumerate(products):
+#         i = i + 1
+#         print(i,product)
+#         # # Create an instance of the Card class
+#         # card = Card(
+#         #     master=cards, card_fg_color="#2A8C55", card_width=200, card_height=60, card_pack_side="left")
 
-# # val = get_config("1")
-# # print(val)
+#         # # Calculate row and column indices
+#         # row_index =  num_columns
+#         # col_index = num_columns
 
-# try:
-#     db_connection = Database_connection.get_connection()  
-# except Exception as e:
-#     print(f"Error: {e}")
+#         # # Display product image in the first column
+#         # card.CardImage(image="delivered_icon.png", light_image="delivered_icon.png", dark_image="delivered_icon.png",
+#         #                image_height=43, image_width=43, image_row=row_index, image_col=col_index, padx=(12, 5), pady=10, image_rowspan=2)
 
-# finally:
-#     if 'db_connection' in locals() and db_connection.is_connected():
-#         db_connection.close()
-#         print("Connection closed")
+#         # # Display product details in the remaining columns
+#         # card.CardLabel(label_text=f"Name: {product['name']}", label_color="black", label_font_family="Arial", label_font_size=12, label_row=row_index, label_col=col_index + 1, label_sticky="w", label_pady=(5, 0))
+#         # card.CardLabel(label_text=f"Price: {product['price']}", label_color="green", label_font_family="Arial", label_font_size=10, label_row=row_index, label_col=col_index + 2, label_sticky="w", label_pady=(5, 0))
+#         # card.CardLabel(label_text=f"Description: {product['description']}", label_color="blue", label_font_family="Arial", label_font_size=10, label_row=row_index, label_col=col_index + 3, label_sticky="w", label_pady=(5, 0))
 
-from customtkinter import *
-from CTkTable import CTkTable
-from PIL import Image
 
-app = CTk()
-app.geometry("856x645")
-app.resizable(0, 0)
+# products_data = [
+#     {"name": "Product 1", "price": "$19.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 2", "price": "$29.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 3", "price": "$39.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 4", "price": "$49.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 5", "price": "$59.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 6", "price": "$69.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 7", "price": "$79.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 8", "price": "$89.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 9", "price": "$99.99", "description": "Lorem ipsum..."},
+#     {"name": "Product 10", "price": "$109.99", "description": "Lorem ipsum..."},
+#     # Add more product details as needed
+# ]
+# num_columns=3
+# num_rows = int(math.ceil(len(products_data)/num_columns))
+# # # Create multiple instances of the Card class with a custom layout
+# create_product_cards(products_data, num_rows, num_columns)
 
-set_appearance_mode("light")
+# # app.mainloop()
 
-# Function to switch frames
-def switch_frame(new_frame):
-    global current_frame
-    current_frame.pack_forget()
-    new_frame.pack(expand=True, fill="both", padx=27, pady=21)
-    current_frame = new_frame
-
-# Sidebar
-sidebar_frame = CTkFrame(master=app, fg_color="#2A8C55", width=176, height=650, corner_radius=0)
-sidebar_frame.pack_propagate(0)
-sidebar_frame.pack(fill="y", anchor="w", side="left")
-
-# ... (unchanged)
-
-# Main view
-main_view = CTkFrame(master=app, fg_color="#fff", width=680, height=650, corner_radius=0)
-main_view.pack_propagate(0)
-main_view.pack(side="left")
-
-# Title frame
-title_frame = CTkFrame(master=main_view, fg_color="transparent")
-title_frame.pack(anchor="n", fill="x", padx=27, pady=(29, 0))
-
-# ... (unchanged)
-
-# Metrics frame
-metrics_frame = CTkFrame(master=main_view, fg_color="transparent")
-metrics_frame.pack(anchor="n", fill="x", padx=27, pady=(36, 0))
-
-# ... (unchanged)
-
-# Search container
-search_container = CTkFrame(master=main_view, height=50, fg_color="#F0F0F0")
-search_container.pack(fill="x", pady=(45, 0), padx=27)
-
-# ... (unchanged)
-
-# Initial table data
-table_data = [
-    ["Order ID", "Item Name", "Customer", "Address", "Status", "Quantity"],
-    ['3833', 'Smartphone', 'Alice', '123 Main St', 'Confirmed', '8'],
-    ['6432', 'Laptop', 'Bob', '456 Elm St', 'Packing', '5'],
-    # ... (more data)
-]
-
-# Initial table frame
-table_frame = CTkScrollableFrame(master=main_view, fg_color="transparent")
-table_frame.pack(expand=True, fill="both", padx=27, pady=21)
-table = CTkTable(master=table_frame, values=table_data, colors=["#E6E6E6", "#EEEEEE"], header_color="#2A8C55", hover_color="#B4B4B4")
-table.edit_row(0, text_color="#fff", hover_color="#2A8C55")
-table.pack(expand=True)
-
-# Set the initial frame
-if 'current_frame' not in globals():
-    current_frame = None
-current_frame = table_frame
-
-# Sidebar button functions
-def show_dashboard():
-    switch_frame(table_frame)
-
-def show_orders():
-    # Create a new frame for orders and switch to it
-    orders_frame = CTkFrame(master=main_view, fg_color="transparent")
-    orders_frame.pack(expand=True, fill="both", padx=27, pady=21)
-
-    # Add widgets to the orders frame
-    CTkLabel(master=orders_frame, text="Orders Page", font=("Arial Black", 25), text_color="#2A8C55").pack(anchor="nw", side="left")
-
-    # Switch to the new frame
-    switch_frame(orders_frame)
-
-# ... (add functions for other sidebar buttons)
-
-# Dashboard button
-CTkButton(master=sidebar_frame, image="analytics_img.png", text="Dashboard", fg_color="transparent", font=("Arial Bold", 14), hover_color="#207244", anchor="w", command=show_dashboard).pack(anchor="center", ipady=5, pady=(60, 0))
-
-# Orders button
-CTkButton(master=sidebar_frame, image="package_img.png", text="Orders", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55", hover_color="#eee", anchor="w", command=show_orders).pack(anchor="center", ipady=5, pady=(16, 0))
-
-# ... (add buttons for other sections)
-
-app.mainloop()
+for i in range(10):
+    for j in range(10):
+        print(f"{i} => i, {j} => j")
