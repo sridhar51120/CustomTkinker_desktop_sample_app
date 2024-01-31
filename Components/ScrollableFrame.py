@@ -97,6 +97,7 @@ class ScrollableFrame:
                 
         except ValueError as e:
             print(e)
+            
 
 
 # entry = CTkEntry(master=frame, placeholder_text="Type something...")

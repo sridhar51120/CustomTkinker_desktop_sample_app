@@ -1,7 +1,7 @@
 import json
 
 def get_config(key):
-    config_file = 'E:/My_Pc/Flask_Python/flask_python/IOT/config.json'
+    config_file = 'G:/GITHUB/GUI/config.json'
     with open(config_file, 'r') as file:
         config = json.loads(file.read())
 
