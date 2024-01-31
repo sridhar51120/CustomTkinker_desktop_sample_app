@@ -1,12 +1,12 @@
 from customtkinter import *
 from CTkTable import CTkTable
 from PIL import Image
-from Components.Dashboard_Frames.Dashboard_tab import tab_dashboard
+from Components.Dashboard_Frames.Dashboard import tab_dashboard
+from Components.Dashboard_Frames.Products import tab_products
 
 app = CTk()
 app.geometry("856x645")
 app.resizable(0, 0)
-
 set_appearance_mode("light")
 
 
@@ -23,20 +23,31 @@ sidebar_frame = CTkFrame(master=app, fg_color="#2A8C55",
 sidebar_frame.pack_propagate(0)
 sidebar_frame.pack(fill="y", anchor="w", side="left")
 
-CTkButton(master=sidebar_frame, text="tab1", fg_color="transparent", font=("Arial Bold", 14),
-          hover_color="#207244", anchor="w",command = tab_dashboard(sidebar_frame)).pack(anchor="center", ipady=5, pady=(60, 0))
-
-CTkButton(master=sidebar_frame, text="tab2", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
-          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-
-CTkButton(master=sidebar_frame, text="tab3", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
-          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(10, 0))
 
 # Main view
 main_view = CTkFrame(master=app, fg_color="#fff",
                      width=680, height=650, corner_radius=0)
 main_view.pack_propagate(0)
 main_view.pack(side="left")
+
+
+CTkButton(master=sidebar_frame, text="Dashboard", fg_color="#fff", font=("Arial Bold", 14),
+          hover_color="#207244", anchor="w").pack(anchor="center", ipady=5, pady=(60, 0))
+# ,command = tab_dashboard(main_view)
+
+CTkButton(master=sidebar_frame, text="Products", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
+          hover_color="#eee", anchor="w",command = tab_products(main_view)).pack(anchor="center", ipady=5, pady=(40, 0))
+
+CTkButton(master=sidebar_frame, text="Billing", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
+          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(40, 0))
+
+CTkButton(master=sidebar_frame, text="Selling", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
+          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(40, 0))
+
+CTkButton(master=sidebar_frame, text="Profile", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
+          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(40, 0))
+
+
 
 
 
