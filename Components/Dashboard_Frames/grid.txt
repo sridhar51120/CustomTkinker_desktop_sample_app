@@ -1,0 +1,32 @@
+row and column:
+
+Example: .grid(row=0, column=1)
+Explanation: Specifies the row and column where the widget should be placed. Rows and columns are zero-indexed.
+rowspan and columnspan:
+
+Example: .grid(row=0, column=1, rowspan=2)
+Explanation: Specifies the number of rows or columns that the widget should span. This is useful when you want a widget to occupy multiple rows or columns.
+sticky:
+
+Example: .grid(row=0, column=1, sticky="w")
+Explanation: Determines where the widget should be placed within the grid cell. Options include "n" (top), "s" (bottom), "e" (right), "w" (left), "ne" (top-right), "sw" (bottom-left), etc.
+padx and pady:
+
+Example: .grid(row=0, column=1, padx=5, pady=10)
+Explanation: Adds padding (in pixels) to the widget, both horizontally (padx) and vertically (pady).
+ipadx and ipady:
+
+Example: .grid(row=0, column=1, ipadx=10, ipady=5)
+Explanation: Adds internal padding (in pixels) to the widget, both horizontally (ipadx) and vertically (ipady). This affects the widget's size without affecting the surrounding cells.
+rowconfigure and columnconfigure:
+
+Example: .rowconfigure(0, weight=1)
+Explanation: Used on the parent container to configure the behavior of rows or columns. The weight parameter determines the relative weight of rows or columns when extra space is available.
+columnconfigure:
+
+Example: .columnconfigure(1, weight=1)
+Explanation: Similar to rowconfigure, but for columns.
+in_:
+
+Example: .grid(row=0, column=1, in_=parent_frame)
+Explanation: Specifies the parent container where the widget should be placed. If omitted, the widget is placed in the master widget by default.

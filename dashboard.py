@@ -4,12 +4,14 @@ from PIL import Image
 from Components.Dashboard_Frames.Dashboard import tab_dashboard
 from Components.Dashboard_Frames.Products import tab_products
 from Components.Dashboard_Frames.Billing import tab_billing
+from Components.Dashboard_Frames.Sales import tab_sales
+from Components.Dashboard_Frames.Profile import tab_profile
+
 
 app = CTk()
 app.geometry("856x645")
 app.resizable(0, 0)
 set_appearance_mode("light")
-
 
 def switch_frame(new_frame):
     global current_frame
@@ -42,15 +44,17 @@ CTkButton(master=sidebar_frame, text="Products", fg_color="#fff", font=("Arial B
 CTkButton(master=sidebar_frame, text="Billing", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
           hover_color="#eee", anchor="w", command=lambda: tab_billing(main_view)).pack(anchor="center", ipady=5, pady=(40, 0))
 
+
 CTkButton(master=sidebar_frame, text="Seles", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
-          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(40, 0))
+          hover_color="#eee", anchor="w", command=lambda: tab_sales(main_view)).pack(anchor="center", ipady=5, pady=(40, 0))
 
 CTkButton(master=sidebar_frame, text="Profile", fg_color="#fff", font=("Arial Bold", 14), text_color="#2A8C55",
-          hover_color="#eee", anchor="w").pack(anchor="center", ipady=5, pady=(40, 0))
-
-
-
+          hover_color="#eee", anchor="w", command=lambda: tab_profile(main_view)).pack(anchor="center", ipady=5, pady=(40, 0))
 
 
 
 app.mainloop()
+
+'''
+https://github.com/Akascape/CTkTable
+'''
