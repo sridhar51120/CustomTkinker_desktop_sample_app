@@ -115,7 +115,6 @@ def tab_sales(main_view):
         "Arial Black", 15), justify="left").grid(row=1, column=1, sticky="nw", pady=(0, 10))
 
     # Total number of Products Sold
-
     table_data = [
         ["Product ID", "Item Name", "Product Rate", "Total Count", "Price"],
         ['3833', 'Smartphone', 'Alice', '123 Main St', 'Confirmed'],

@@ -1,0 +1,55 @@
+register
+login
+ssh keys
+billing
+products
+profile
+
+register -
+    username
+    password
+    date
+    time
+    year
+
+login - 
+    username
+    password
+    date
+    time
+    year
+
+
+ssh keys -
+    public keys
+    private keys
+
+billing - 
+    date
+    quantity
+    total price
+    total number of bills 
+    total number of products sold
+    product id (or) bar code scanner
+
+product - 
+    Product ID
+    Product Name
+    Category
+    Brand
+    Description
+    Unit of Measurement (e.g., kg, liter, unit)
+
+
+profile - 
+    username
+    password
+    ssh keys
+    gst id
+    pan ID
+    store address
+    qr code scanner
+    payments for software
+    attachment of contract file
+    date of joining
+    
