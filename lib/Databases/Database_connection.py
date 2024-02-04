@@ -33,11 +33,42 @@ class Database_connection:
             except Error as e:
                 print(f"Error: {e}")
                 raise Exception("Connection failed")
-
         else:
             return Database_connection._conn
+        
+    @staticmethod
+    def close_connection():
+        try:
+            if Database_connection._conn and Database_connection._conn.is_connected():
+                Database_connection._conn.close()
+                print("Connection closed")
+            else:
+                print("Connection is not open.")
+        except Error as e:
+            print(f"Error closing connection: {e}")
+            raise
+        
+    @staticmethod
+    def table_exists(table_name):
+        try:
+            connection = Database_connection.get_connection()
+            cursor = connection.cursor()
 
+            query = f"SHOW TABLES LIKE '{table_name}'"
+            cursor.execute(query)
 
+            table_exists = cursor.fetchone() is not None
+
+            cursor.close()
+            return table_exists
+
+        except Error as e:
+            raise Exception(f"Error checking if table exists: {e}")
+
+        finally:
+            Database_connection.close_connection()
+            
+                
 # try:
 #     db_connection = Database_connection.get_connection()  
 # except Exception as e:
